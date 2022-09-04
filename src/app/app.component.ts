@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { GlobalVariablesService } from './services/global-variables.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'CRUD';
+
+  constructor(
+    private GVS: GlobalVariablesService
+  ) {
+    console.log('[AppComponent#constructor]');
+  }
 }
