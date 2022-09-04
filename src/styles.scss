@@ -13,3 +13,8 @@ $danger: #eb445a;
 $dark: #222428;
 $medium: #92949c;
 $light: #f4f5f8;
+
+body {
+  background-color: $back-default;
+  color: $text-default;
+}
