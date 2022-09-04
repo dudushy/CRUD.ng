@@ -1,0 +1,39 @@
+@use '/src/styles.scss' as vars;
+
+body {
+  background-color: vars.$back-default;
+}
+
+header {
+  background-color: vars.$primary;
+  padding: 1em;
+  border-radius: 20px;
+  text-align: center;
+
+  ul {
+    // background-color: vars.$warning;
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  li {
+    padding-inline: 1em;
+    // width: 100%;
+  }
+
+  button {
+    padding: 1em;
+    // width: 100%;
+  }
+}
+
+footer {
+  background-color: vars.$text-highlight;
+  padding: 1em;
+  border-radius: 20px;
+  text-align: center;
+}

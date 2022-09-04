@@ -1,6 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component } from '@angular/core';
 
 import { GlobalVariablesService } from './services/global-variables.service';
+
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +14,17 @@ export class AppComponent {
   title = 'CRUD';
 
   constructor(
-    private GVS: GlobalVariablesService
+    public GVS: GlobalVariablesService,
+    private router: Router
   ) {
     console.log('[AppComponent#constructor]');
+
+    console.log('[AppComponent#constructor] (GVS) test', this.GVS.getVar('test'));
+  }
+
+  redirectTo(url: any) {
+    console.log('[AppComponent#redirectTo] url', url);
+    this.router.navigateByUrl(`/${url}`);
+    // this.router.navigateByUrl('/' + url);
   }
 }

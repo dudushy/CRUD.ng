@@ -1,1 +1,17 @@
+<header>
+  <h1>CRUD.ng</h1>
+
+  <ul>
+    <li *ngFor="let page of GVS.getVar('test') | keyvalue">
+      <button (click)="redirectTo(page.value)">{{page.value}}</button>
+    </li>
+  </ul>
+  <hr>
+</header>
+
 <router-outlet></router-outlet>
+
+<footer>
+  <hr>
+  <h1>footer</h1>
+</footer>
