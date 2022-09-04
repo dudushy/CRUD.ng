@@ -1,4 +1,4 @@
-# [CRUD.ng](https://github.com/dudushy/CRUD.ng/)
+# [CRUD.ng](https://dudushy.github.io/CRUD.ng/)
 Playing with Angular.
 > version 14.1.2
 ---
