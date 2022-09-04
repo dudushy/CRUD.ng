@@ -42,7 +42,7 @@ Playing with Angular.
 
 4. Build project
     ```bash
-    npm i angular-cli-ghpages --save-dev
+    npm i -g angular-cli-ghpages
     ```
 
     ```bash
