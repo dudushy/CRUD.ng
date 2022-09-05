@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 
 import { GlobalVariablesService } from './services/global-variables.service';
 
@@ -11,34 +11,28 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  url = '';
 
   constructor(
     public GVS: GlobalVariablesService,
-    private router: Router
+    private router: Router,
+    private cdr: ChangeDetectorRef
   ) {
     console.log('[AppComponent#constructor]');
     console.log('[AppComponent#constructor] (GVS) all_pages', this.GVS.getVar('all_pages'));
-
-    this.updateURL();
   }
 
-  updateURL() {
-    const newUrl = this.router.url;
-    console.log('[AppComponent#updateURL] newUrl', newUrl);
-
-    if (newUrl == '/') {
-      this.url = this.GVS.getVar('base_url');
-    } else {
-      this.url = newUrl;
-    }
-
-    console.log('[AppComponent#updateURL] url', this.url);
+  detectChanges(from: string) {
+    console.log('[AppComponent#detectChanges] from', from);
+    this.cdr.detectChanges;
   }
 
   redirectTo(url: any) {
     console.log('[AppComponent#redirectTo] url', url);
     this.router.navigateByUrl(`/${url}`);
-    this.updateURL();
+
+    this.GVS.setVar('current_url', url);
+    console.log('[AppComponent#redirectTo] current_url', this.GVS.getVar('current_url'));
+
+    this.detectChanges('app');
   }
 }

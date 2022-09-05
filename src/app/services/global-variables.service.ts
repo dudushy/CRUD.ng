@@ -22,6 +22,8 @@ export class GlobalVariablesService {
 
     this.variables.base_url = 'test';
 
+    this.variables.current_url = 'test';
+
     console.log('[GlobalVariablesService#constructor] variables', this.variables);
   }
 

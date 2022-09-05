@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-delete',
@@ -6,12 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./delete.component.scss']
 })
 export class DeleteComponent implements OnInit {
+  title = 'delete';
 
-  constructor() {
+  constructor(
+    private cdr: ChangeDetectorRef,
+    private app: AppComponent
+  ) {
     console.log('[DeleteComponent#constructor]');
   }
 
   ngOnInit(): void {
     console.log('[DeleteComponent#ngOnInit]');
+    this.app.detectChanges(this.title);
   }
 }

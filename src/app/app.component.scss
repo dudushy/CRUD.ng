@@ -38,21 +38,19 @@ header {
   button {
     border-radius: 20px;
     font-size: larger;
+    padding: 1em;
+    transition: .5s;
   }
 
   button[active="true"] {
     background-color: $button-back-default;
     color: $button-text-default;
-    padding: 1em;
-    // width: 100%;
     transition: .5s;
   }
 
   button[active="false"] {
     background-color: $back-default;
     color: $text-default;
-    padding: 1em;
-    // width: 100%;
     transition: .5s;
   }
 

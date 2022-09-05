@@ -3,8 +3,8 @@
 
   <ul>
     <li *ngFor="let page of GVS.getVar('all_pages') | keyvalue">
-      <button *ngIf="page.value == url" (click)="redirectTo(page.value)" [attr.active]="true">{{page.value}}</button>
-      <button *ngIf="page.value != url" (click)="redirectTo(page.value)" [attr.active]="false">{{page.value}}</button>
+      <button *ngIf="page.value == GVS.getVar('current_url')" (click)="redirectTo(page.value)" [attr.active]="true">{{page.value}}</button>
+      <button *ngIf="page.value != GVS.getVar('current_url')" (click)="redirectTo(page.value)" [attr.active]="false">{{page.value}}</button>
     </li>
   </ul>
   <hr>

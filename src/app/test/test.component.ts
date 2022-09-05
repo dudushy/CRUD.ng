@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-test',
@@ -6,12 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./test.component.scss']
 })
 export class TestComponent implements OnInit {
+  title = 'test';
 
-  constructor() {
+  constructor(
+    private cdr: ChangeDetectorRef,
+    private app: AppComponent
+  ) {
     console.log('[TestComponent#constructor]');
   }
 
   ngOnInit(): void {
     console.log('[TestComponent#ngOnInit]');
+    this.app.detectChanges(this.title);
   }
 }
