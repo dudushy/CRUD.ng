@@ -3,6 +3,10 @@ $text-default: #ffffff;
 $text-highlight: #9224ff;
 $back-default: #000000;
 $back-highlight: #393939;
+$button-back-default: #3dc2ff;
+$button-back-highlight: #3880ff;
+$button-text-default: #0c2d3c;
+$button-text-highlight: #142d58;
 
 $primary: #3880ff;
 $secondary: #3dc2ff;
@@ -14,7 +18,8 @@ $dark: #222428;
 $medium: #92949c;
 $light: #f4f5f8;
 
+//? Default Body Color
 body {
-  background-color: $back-default;
-  color: $text-default;
+  background-color: $dark;
+  color: $light;
 }
