@@ -32,20 +32,25 @@ Playing with Angular.
     npm init @eslint/config
     ```
 
-2. Generate
+1. Generate
+    ```bash
+    bash steps.sh
+    ```
+
     > [steps.sh](/steps.sh)
 
-3. Run project
+1. Run project
     ```bash
     ng serve
     ```
 
-4. Build project
+1. Build project
     ```bash
     npm i -g angular-cli-ghpages
     ```
 
     ```bash
-    ng build --base-href "https://dudushy.github.io/CRUD.ng/"
-    npx angular-cli-ghpages --dir=dist/CRUD
+    bash build.sh
     ```
+
+    > [build.sh](/build.sh)
