@@ -1,17 +1,27 @@
-@use '/src/styles.scss' as vars;
-
-body {
-  background-color: vars.$back-default;
-}
+// @use '/src/styles.scss' as vars;
+@import '/src/styles.scss';
 
 header {
-  background-color: vars.$primary;
-  padding: 1em;
-  border-radius: 20px;
+  background: radial-gradient($light 1%, $dark);
+  padding: .5em;
+  border-radius: 10px;
   text-align: center;
+  border: 2px solid $light;
+  font-family: monospace;
+  font-weight: bolder;
+
+  hr {
+    color: $medium;
+    padding: .2em;
+    border-radius: 30px;
+  }
+
+  a, a:hover, a:active, a:visited {
+    color: $danger;
+  }
 
   ul {
-    // background-color: vars.$warning;
+    // background-color: $warning;
     display: flex;
     justify-content: center;
     list-style-type: none;
@@ -26,14 +36,57 @@ header {
   }
 
   button {
+    border-radius: 20px;
+    font-size: larger;
+  }
+
+  button[active="true"] {
+    background-color: $button-back-default;
+    color: $button-text-default;
     padding: 1em;
     // width: 100%;
+    transition: .5s;
+  }
+
+  button[active="false"] {
+    background-color: $back-default;
+    color: $text-default;
+    padding: 1em;
+    // width: 100%;
+    transition: .5s;
+  }
+
+  button:active{
+    background-color: $back-highlight;
+    color: $text-highlight;
+    transition: .5s;
   }
 }
 
 footer {
-  background-color: vars.$text-highlight;
-  padding: 1em;
-  border-radius: 20px;
+  background: radial-gradient($dark, $light);
+  padding: .5em;
+  border-radius: 10px;
   text-align: center;
+  border: 2px solid $light;
+  font-family: monospace;
+  font-weight: bolder;
+
+  hr {
+    color: $medium;
+    padding: .2em;
+    border-radius: 30px;
+  }
+
+  span {
+    color: $danger;
+  }
+
+  a, a:hover, a:active, a:visited {
+    color: $tertiary;
+    background-color: rgba($light, .3);
+    padding: .25em;
+    border-radius: 15px;
+    border: 1px dotted $danger;
+  }
 }
