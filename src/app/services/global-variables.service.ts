@@ -7,18 +7,20 @@ import { Injectable } from '@angular/core';
 export class GlobalVariablesService {
   variables: any;
 
-  constructor( ) {
+  constructor() {
     console.log('[GlobalVariablesService#constructor]');
 
     this.variables = [];
 
-    this.setVar('test', [
+    this.variables.all_pages = [
       'test',
       'create',
       'read',
       'update',
       'delete'
-    ]);
+    ];
+
+    this.variables.base_url = 'test';
 
     console.log('[GlobalVariablesService#constructor] variables', this.variables);
   }
