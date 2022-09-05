@@ -7,12 +7,14 @@ Playing with Angular.
 - [NodeJS](https://nodejs.org/)
 
 ## Setup:
-1. Install Angular CLI
+1. Install Packages
     ```bash
-    npm i -g @angular/cli
+    bash packages.sh
     ```
 
-1. Create new project
+    > [packages.sh](/packages.sh)
+
+2. Create new project
     ```bash
     ng new CRUD
 
@@ -23,32 +25,24 @@ Playing with Angular.
     ? Which stylesheet format would you like to use? SCSS
     ```
 
-1. Setup ESLint
-    ```bash
-    npm install -g eslint
-    ```
-
+3. Setup ESLint
     ```bash
     npm init @eslint/config
     ```
 
-1. Generate
+4. Generate
     ```bash
     bash steps.sh
     ```
 
     > [steps.sh](/steps.sh)
 
-1. Run project
+5. Run project
     ```bash
     ng serve
     ```
 
-1. Build project
-    ```bash
-    npm i -g angular-cli-ghpages
-    ```
-
+6. Build project
     ```bash
     bash build.sh
     ```
