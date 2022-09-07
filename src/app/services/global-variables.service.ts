@@ -5,12 +5,12 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class GlobalVariablesService {
-  variables: any;
+  variables: any = [];
 
   constructor() {
     console.log('[GlobalVariablesService#constructor]');
 
-    this.variables = [];
+    this.variables.theme = 'dark';
 
     this.variables.all_pages = [
       'test',

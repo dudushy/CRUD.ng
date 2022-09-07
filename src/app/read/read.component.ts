@@ -18,6 +18,6 @@ export class ReadComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('[ReadComponent#ngOnInit]');
-    this.app.detectChanges(this.title);
+    this.app.updateView(this.title);
   }
 }

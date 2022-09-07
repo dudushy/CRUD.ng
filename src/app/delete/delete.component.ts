@@ -18,6 +18,6 @@ export class DeleteComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('[DeleteComponent#ngOnInit]');
-    this.app.detectChanges(this.title);
+    this.app.updateView(this.title);
   }
 }

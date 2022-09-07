@@ -18,6 +18,6 @@ export class TestComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('[TestComponent#ngOnInit]');
-    this.app.detectChanges(this.title);
+    this.app.updateView(this.title);
   }
 }

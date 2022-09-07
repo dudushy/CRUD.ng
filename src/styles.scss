@@ -18,8 +18,14 @@ $dark: #222428;
 $medium: #92949c;
 $light: #f4f5f8;
 
-//? Default body color
-body {
+//? theme: dark
+body[theme="dark"] {
   background-color: $dark;
   color: $light;
+}
+
+//? theme: light
+body[theme="light"] {
+  background-color: $light;
+  color: $dark;
 }

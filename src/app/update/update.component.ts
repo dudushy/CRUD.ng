@@ -18,6 +18,6 @@ export class UpdateComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('[UpdateComponent#ngOnInit]');
-    this.app.detectChanges(this.title);
+    this.app.updateView(this.title);
   }
 }

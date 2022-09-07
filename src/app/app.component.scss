@@ -10,6 +10,19 @@ header {
   font-family: monospace;
   font-weight: bolder;
 
+  #theme-button {
+    border-radius: 50%;
+    float: right;
+    position: absolute;
+    // margin-bottom: -1em;
+    margin-left: 37%;
+    width: 2.5em;
+    height: 2.5em;
+    font-size: larger;
+    padding: .4em;
+    transition: .2s;
+  }
+
   hr {
     color: $medium;
     padding: .2em;
@@ -39,25 +52,25 @@ header {
     border-radius: 20px;
     font-size: larger;
     padding: 1em;
-    transition: .5s;
+    transition: .2s;
   }
 
   button[active="true"] {
     background-color: $button-back-default;
     color: $button-text-default;
-    transition: .5s;
+    transition: .2s;
   }
 
   button[active="false"] {
     background-color: $back-default;
     color: $text-default;
-    transition: .5s;
+    transition: .2s;
   }
 
   button:active{
     background-color: $back-highlight;
     color: $text-highlight;
-    transition: .5s;
+    transition: .2s;
   }
 }
 

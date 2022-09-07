@@ -18,6 +18,6 @@ export class CreateComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('[CreateComponent#ngOnInit]');
-    this.app.detectChanges(this.title);
+    this.app.updateView(this.title);
   }
 }
