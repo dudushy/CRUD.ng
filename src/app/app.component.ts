@@ -32,9 +32,11 @@ export class AppComponent {
     console.log(`[${this.title}#toggleTheme] theme`, theme);
 
     if (theme == 'light') {
+      //? dark theme
       this.GVS.setVar('theme', 'dark');
       document.body.setAttribute('theme', this.GVS.getVar('theme'));
     } else {
+      //? light theme
       this.GVS.setVar('theme', 'light');
       document.body.setAttribute('theme', this.GVS.getVar('theme'));
     }

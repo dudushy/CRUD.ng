@@ -1,1 +1,9 @@
-<p>test works!</p>
+<div id="content">
+  <h1>
+    title: {{title}}
+    <br>
+    current_url: {{app.GVS.getVar('current_url')}}
+  </h1>
+
+  <textarea (input)="updateTextArea()" id="test">{{app.GVS.getVar('textarea_text')}}</textarea>
+</div>

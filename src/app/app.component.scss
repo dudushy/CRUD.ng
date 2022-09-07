@@ -1,4 +1,3 @@
-// @use '/src/styles.scss' as vars;
 @import '/src/styles.scss';
 
 header {
@@ -9,6 +8,8 @@ header {
   border: 2px solid $light;
   font-family: monospace;
   font-weight: bolder;
+  animation: grayscale-border-reverse 20s linear;
+  animation-iteration-count: infinite;
 
   #theme-button {
     border-radius: 50%;
@@ -27,6 +28,8 @@ header {
     color: $medium;
     padding: .2em;
     border-radius: 30px;
+    animation: grayscale-background-reverse 20s linear;
+    animation-iteration-count: infinite;
   }
 
   a, a:hover, a:active, a:visited {
@@ -44,60 +47,65 @@ header {
   }
 
   li {
-    padding-inline: 1em;
+    padding-inline: .5em;
+    padding-bottom: .2em;
     // width: 100%;
   }
 
   button {
-    border-radius: 20px;
-    font-size: larger;
-    padding: 1em;
+    border-radius: 10px;
+    font-size: large;
+    font-weight: bolder;
+    padding: .8em;
+    padding-block: .5em;
     transition: .2s;
   }
 
   button[active="true"] {
-    background-color: $button-back-default;
-    color: $button-text-default;
+    background-color: $danger;
+    color: $light;
     transition: .2s;
   }
 
   button[active="false"] {
-    background-color: $back-default;
-    color: $text-default;
-    transition: .2s;
-  }
-
-  button:active{
-    background-color: $back-highlight;
-    color: $text-highlight;
+    background-color: $light;
+    color: $danger;
     transition: .2s;
   }
 }
 
 footer {
-  background: radial-gradient($dark, $light);
+  // background: radial-gradient($dark, $light);
+  background: radial-gradient($light 1%, $dark);
   padding: .5em;
   border-radius: 10px;
   text-align: center;
   border: 2px solid $light;
   font-family: monospace;
   font-weight: bolder;
+  color: $dark;
+  animation: grayscale-border-reverse 20s linear;
+  animation-iteration-count: infinite;
 
   hr {
     color: $medium;
     padding: .2em;
     border-radius: 30px;
+    animation: grayscale-background-reverse 20s linear;
+    animation-iteration-count: infinite;
   }
 
-  span {
+  #heart {
     color: $danger;
   }
 
   a, a:hover, a:active, a:visited {
     color: $tertiary;
-    background-color: rgba($light, .3);
+    background-color: rgba($dark, .4);
     padding: .25em;
-    border-radius: 15px;
+    border-radius: 10px;
     border: 1px dotted $danger;
+    animation: rainbow-color 2s linear;
+    animation-iteration-count: infinite;
   }
 }

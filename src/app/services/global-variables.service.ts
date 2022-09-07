@@ -10,6 +10,8 @@ export class GlobalVariablesService {
   constructor() {
     console.log('[GlobalVariablesService#constructor]');
 
+    this.setupVars();
+
     this.variables.theme = 'dark';
 
     this.variables.all_pages = [
@@ -27,19 +29,36 @@ export class GlobalVariablesService {
     console.log('[GlobalVariablesService#constructor] variables', this.variables);
   }
 
-  getVar(varname: any) {
-    // console.log(`[GlobalVariablesService#getVar] variables[${varname}]`, this.variables[varname]);
+  setupVars() {
+    console.log('[GlobalVariablesService#setupVars]');
+    this.setVar('theme', 'dark');
 
-    if (this.variables[varname] != undefined) {
-      return this.variables[varname];
-    } else {
-      return null;
-    }
+    this.setVar('all_pages', [
+      'test',
+      'create',
+      'read',
+      'update',
+      'delete'
+    ]);
+
+    this.setVar('base_url', 'test');
+
+    this.setVar('current_url', 'test');
+  }
+
+  getVar(varname: any) {
+    // if (this.variables[varname] != undefined) {
+    //   return this.variables[varname];
+    // } else {
+    //   return null;
+    // }
+
+    return JSON.parse(localStorage.getItem(varname) || 'null');
   }
 
   setVar(varname: any, value: any) {
-    this.variables[varname] = value;
+    // this.variables[varname] = value;
 
-    // console.log(`[GlobalVariablesService#setVar] variables[${varname}]`, this.variables[varname]);
+    localStorage.setItem(varname, JSON.stringify(value));
   }
 }

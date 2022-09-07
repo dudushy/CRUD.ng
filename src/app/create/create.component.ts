@@ -11,7 +11,7 @@ export class CreateComponent implements OnInit {
 
   constructor(
     private cdr: ChangeDetectorRef,
-    private app: AppComponent
+    public app: AppComponent
   ) {
     console.log('[CreateComponent#constructor]');
   }
