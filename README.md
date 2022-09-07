@@ -32,10 +32,10 @@ Playing with Angular.
 
 4. Generate
     ```bash
-    bash steps.sh
+    bash generate.sh
     ```
 
-    > [steps.sh](/steps.sh)
+    > [generate.sh](/generate.sh)
 
 5. Run project
     ```bash
