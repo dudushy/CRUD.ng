@@ -20,4 +20,10 @@ export class CreateComponent implements OnInit {
     console.log('[CreateComponent#ngOnInit]');
     this.app.updateView(this.title);
   }
+
+  updateView() {
+    console.log(`[${this.title}#updateView]`);
+
+    this.cdr.detectChanges;
+  }
 }

@@ -21,6 +21,12 @@ export class TestComponent implements OnInit {
     this.app.updateView(this.title);
   }
 
+  updateView() {
+    console.log(`[${this.title}#updateView]`);
+
+    this.cdr.detectChanges;
+  }
+
   updateTextArea() {
     console.log('[TestComponent#updateTextArea]');
     const textarea = document.getElementById('test') as HTMLTextAreaElement;

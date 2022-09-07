@@ -20,6 +20,8 @@ export class AppComponent {
   ) {
     console.log(`[${this.title}#constructor]`);
 
+    this.redirectTo(this.GVS.getVar('base_url'));
+
     this.loadTheme();
 
     // console.log(`[${this.title}#constructor] (GVS) all_pages`, this.GVS.getVar('all_pages'));

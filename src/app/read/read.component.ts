@@ -20,4 +20,10 @@ export class ReadComponent implements OnInit {
     console.log('[ReadComponent#ngOnInit]');
     this.app.updateView(this.title);
   }
+
+  updateView() {
+    console.log(`[${this.title}#updateView]`);
+
+    this.cdr.detectChanges;
+  }
 }

@@ -1,7 +1,7 @@
 <header>
   <button id="theme-button">
-    <img *ngIf="GVS.getVar('theme') == 'dark'" src="../assets/icons/sunny.svg" (click)="toggleTheme()">
-    <img *ngIf="GVS.getVar('theme') == 'light'" src="../assets/icons/moon.svg" (click)="toggleTheme()">
+    <img *ngIf="GVS.getVar('theme') == 'dark'" [src]="'../assets/icons/sunny.svg'" (click)="toggleTheme()">
+    <img *ngIf="GVS.getVar('theme') == 'light'" [src]="'../assets/icons/moon.svg'" (click)="toggleTheme()">
   </button>
 
   <h1><a href="https://dudushy.github.io/CRUD.ng/" target="_blank">CRUD.ng</a></h1>

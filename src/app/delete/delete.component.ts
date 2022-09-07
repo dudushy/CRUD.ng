@@ -20,4 +20,10 @@ export class DeleteComponent implements OnInit {
     console.log('[DeleteComponent#ngOnInit]');
     this.app.updateView(this.title);
   }
+
+  updateView() {
+    console.log(`[${this.title}#updateView]`);
+
+    this.cdr.detectChanges;
+  }
 }

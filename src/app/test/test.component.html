@@ -6,4 +6,10 @@
   </h1>
 
   <textarea (input)="updateTextArea()" id="test">{{app.GVS.getVar('textarea_text')}}</textarea>
+
+  <hr>
+
+  <textarea #natan (input)="updateView()"></textarea>
+  <br>
+  <span>{{natan.value}}</span>
 </div>
