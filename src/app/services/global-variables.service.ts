@@ -23,7 +23,7 @@ export class GlobalVariablesService {
 
     this.setupVars();
 
-    this.test();
+    // this.test();
   }
 
   async test() {
@@ -40,6 +40,7 @@ export class GlobalVariablesService {
     this.variables.theme = 'dark';
     this.variables.all_pages = [
       'test',
+      'login',
       'create',
       'read',
       'update',
@@ -52,12 +53,13 @@ export class GlobalVariablesService {
     this.setVar('theme', 'dark');
     this.setVar('all_pages', [
       'test',
+      'login',
       'create',
       'read',
       'update',
       'delete'
     ]);
-    this.setVar('base_url', 'test');
+    this.setVar('base_url', 'login');
     this.setVar('current_url', 'test');
   }
 

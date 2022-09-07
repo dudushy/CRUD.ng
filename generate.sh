@@ -1,4 +1,5 @@
 ng generate component test
+ng generate component login
 ng generate component create
 ng generate component read
 ng generate component update
