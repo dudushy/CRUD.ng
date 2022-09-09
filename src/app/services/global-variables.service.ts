@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Injectable } from '@angular/core';
 
-import { SECRETS } from '../../assets/secrets/secrets';
-
-import { initializeApp } from 'firebase/app';
-import { getAnalytics } from 'firebase/analytics';
-
-import { getFirestore, doc, collection, addDoc, getDocs, setDoc } from 'firebase/firestore';
+//! FIREBASE (OUT OF ORDER) [BEGIN] #1
+// import { SECRETS } from '../../assets/secrets/secrets';
+// import { initializeApp } from 'firebase/app';
+// import { getAnalytics } from 'firebase/analytics';
+// import { getFirestore, doc, collection, addDoc, getDocs, setDoc } from 'firebase/firestore';
+//! FIREBASE (OUT OF ORDER) [END] #1
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +14,11 @@ import { getFirestore, doc, collection, addDoc, getDocs, setDoc } from 'firebase
 export class GlobalVariablesService {
   variables: any = [];
 
-  fbApp = initializeApp(SECRETS.firebaseConfig);
-  fbAnalytics = getAnalytics(this.fbApp);
-  db = getFirestore(this.fbApp);
+  //! FIREBASE (OUT OF ORDER) [BEGIN] #2
+  // fbApp = initializeApp(SECRETS.firebaseConfig);
+  // fbAnalytics = getAnalytics(this.fbApp);
+  // db = getFirestore(this.fbApp);
+  //! FIREBASE (OUT OF ORDER) [END] #2
 
   constructor() {
     console.log('[GlobalVariablesService#constructor]');
@@ -27,11 +29,13 @@ export class GlobalVariablesService {
   }
 
   async test() {
-    this.addFbDoc('test', 'dudu', 20);
-    console.log('[GlobalVariablesService#constructor] getFbDocs (1)');
-    await this.getFbDocs('test');
-    console.log('[GlobalVariablesService#constructor] getFbDocs (2)');
-    await this.getFbDocs('test');
+    //! FIREBASE (OUT OF ORDER) [BEGIN] #3
+    // this.addFbDoc('test', 'dudu', 20);
+    // console.log('[GlobalVariablesService#constructor] getFbDocs (1)');
+    // await this.getFbDocs('test');
+    // console.log('[GlobalVariablesService#constructor] getFbDocs (2)');
+    // await this.getFbDocs('test');
+    //! FIREBASE (OUT OF ORDER) [END] #3
   }
 
   setupVars() {
@@ -79,44 +83,46 @@ export class GlobalVariablesService {
     localStorage.setItem(varname, JSON.stringify(value));
   }
 
-  async setFbDoc(table: any, id: any, varname: any, value: any) {
-    const params = {
-      table: table,
-      id: id,
-      varname: varname,
-      value: value
-    };
-    console.log('[GlobalVariablesService#setFbDoc] params', params);
+  //! FIREBASE (OUT OF ORDER) [BEGIN] #4
+  // async setFbDoc(table: any, id: any, varname: any, value: any) {
+  //   const params = {
+  //     table: table,
+  //     id: id,
+  //     varname: varname,
+  //     value: value
+  //   };
+  //   console.log('[GlobalVariablesService#setFbDoc] params', params);
 
-    await setDoc(
-      doc(this.db, table, id),
-      {
-        [varname]: value
-      },
-      {
-        merge: true
-      }
-    );
-  }
+  //   await setDoc(
+  //     doc(this.db, table, id),
+  //     {
+  //       [varname]: value
+  //     },
+  //     {
+  //       merge: true
+  //     }
+  //   );
+  // }
 
-  async addFbDoc(table: any, varname: any, value: any) {
-    try {
-      const docRef = await addDoc(collection(this.db, table), {
-        [varname]: value
-      });
-      // console.log('[GlobalVariablesService#addFbDoc] docRef', docRef);
-      console.log(`[GlobalVariablesService#addFbDoc] ${table}/${varname} success | id`, docRef.id);
-    } catch (e) {
-      console.error(`[GlobalVariablesService#addFbDoc] ${table}/${varname} error`, e);
-    }
-  }
+  // async addFbDoc(table: any, varname: any, value: any) {
+  //   try {
+  //     const docRef = await addDoc(collection(this.db, table), {
+  //       [varname]: value
+  //     });
+  //     // console.log('[GlobalVariablesService#addFbDoc] docRef', docRef);
+  //     console.log(`[GlobalVariablesService#addFbDoc] ${table}/${varname} success | id`, docRef.id);
+  //   } catch (e) {
+  //     console.error(`[GlobalVariablesService#addFbDoc] ${table}/${varname} error`, e);
+  //   }
+  // }
 
-  async getFbDocs(table: any) {
-    const querySnapshot = await getDocs(collection(this.db, table));
-    // console.log('[GlobalVariablesService#getFbDocs] querySnapshot', querySnapshot);
-    querySnapshot.forEach((doc) => {
-      console.log(`[GlobalVariablesService#getFbDocs] ${doc.id}`, doc.data());
-      this.setFbDoc(table, doc.id, 'dudushy', 'natan');
-    });
-  }
+  // async getFbDocs(table: any) {
+  //   const querySnapshot = await getDocs(collection(this.db, table));
+  //   // console.log('[GlobalVariablesService#getFbDocs] querySnapshot', querySnapshot);
+  //   querySnapshot.forEach((doc) => {
+  //     console.log(`[GlobalVariablesService#getFbDocs] ${doc.id}`, doc.data());
+  //     this.setFbDoc(table, doc.id, 'dudushy', 'natan');
+  //   });
+  // }
+  //! FIREBASE (OUT OF ORDER) [END] #4
 }
