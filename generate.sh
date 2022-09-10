@@ -1,6 +1,5 @@
 #! title preset
 TITLE='[generate.sh]'
-echo $TITLE 'start'
 
 #* main
 echo $TITLE 'run'
