@@ -17,16 +17,71 @@ export class AppComponent {
   constructor(
     public GVS: GlobalVariablesService,
     private router: Router,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
   ) {
     console.log(`[${this.title}#constructor]`);
 
-    this.redirectTo(this.GVS.getVar('base_url'));
+    const lastPage = this.GVS.getVar('last_page');
+    console.log(console.log(`[${this.title}#constructor] lastPage`, lastPage));
+
+    if (lastPage == null) {
+      this.redirectTo(this.GVS.getVar('base_url'), this.title);
+    } else {
+      this.redirectTo(lastPage, this.title);
+    }
+
+    const user = this.GVS.getVar('user');
+    console.log(console.log(`[${this.title}#constructor] user`, user));
+
+    if (user != null) {
+      this.login(atob(user.username), atob(user.password));
+    }
 
     this.updateUsername();
     this.loadTheme();
 
     // console.log(`[${this.title}#constructor] (GVS) all_pages`, this.GVS.getVar('all_pages'));
+  }
+
+  login(username: any, password: any) {
+    const accounts = this.GVS.getVar('accounts');
+    console.log(`[${this.title}#login] accounts`, accounts);
+
+    console.log(`[${this.title}#login] username`, username);
+    console.log(`[${this.title}#login] password`, password);
+
+    let validAccount = false;
+
+    for (const account of accounts.users) {
+      console.log(`[${this.title}#login] account`, account);
+
+      const accountUsername = atob(account.username);
+      console.log(`[${this.title}#login] accountUsername`, accountUsername);
+      const accountPassword = atob(account.password);
+      console.log(`[${this.title}#login] accountPassword`, accountPassword);
+
+      if (username == accountUsername && password == accountPassword) {
+        validAccount = true;
+        const match = {
+          username: `${username} == ${accountUsername}`,
+          password: `${password} == ${accountPassword}`,
+          validAccount: validAccount
+        };
+        console.log(`[${this.title}#login] match`, match);
+
+        const user = {
+          username: btoa(username),
+          password: btoa(password),
+          operator: account.operator
+        };
+        console.log(`[${this.title}#login] user`, user);
+        this.GVS.setVar('logged', true);
+        this.GVS.setVar('user', user);
+        break;
+      }
+    }
+    if (validAccount == false) console.log(`[${this.title}#login] no match`, validAccount);
+    this.updateView('app');
   }
 
   updateUsername() {
@@ -71,12 +126,13 @@ export class AppComponent {
     this.cdr.detectChanges;
   }
 
-  redirectTo(url: any) {
-    console.log(`[${this.title}#redirectTo] url`, url);
+  redirectTo(url: any, from: any) {
+    console.log(`[${this.title}#redirectTo] ${from} | url`, url);
 
     this.router.navigateByUrl(`/${url}`);
 
     this.GVS.setVar('current_url', url);
+    this.GVS.setVar('last_page', url);
     console.log(`[${this.title}#redirectTo] current_url`, this.GVS.getVar('current_url'));
 
     this.updateView('app');

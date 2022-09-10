@@ -13,3 +13,24 @@
   color: $light;
   cursor: pointer;
 }
+
+#content {
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  // text-align: center;
+
+  .data-text {
+    width: 50%;
+  }
+
+  .data-input {
+    width: 50%;
+  }
+
+  #create-button {
+    width: 100%;
+  }
+}

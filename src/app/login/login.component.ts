@@ -42,12 +42,7 @@ export class LoginComponent implements OnInit {
   }
 
   redirectTo(url: any) {
-    console.log(`[${this.title}#redirectTo] url`, url);
-
-    this.router.navigateByUrl(`/${url}`);
-
-    this.GVS.setVar('current_url', url);
-    console.log(`[${this.title}#redirectTo] current_url`, this.GVS.getVar('current_url'));
+    this.app.redirectTo(url, this.title);
 
     this.updateView();
   }
