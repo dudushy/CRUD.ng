@@ -20,12 +20,18 @@ export class LoginComponent implements OnInit {
     private router: Router,
     public app: AppComponent
   ) {
-    console.log('[LoginComponent#constructor]');
+    console.log(`[${this.title}#constructor]`);
   }
 
   ngOnInit(): void {
-    console.log('[LoginComponent#ngOnInit]');
+    console.log(`[${this.title}#ngOnInit]`);
     this.app.updateView(this.title);
+
+    const user = this.GVS.getVar('user');
+    console.log(`[${this.title}#ngOnInit] user`, user);
+    if (user != null) {
+      this.login(atob(user.username), atob(user.password));
+    }
   }
 
   updateView() {
