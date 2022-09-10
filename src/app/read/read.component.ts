@@ -3,8 +3,6 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { GlobalVariablesService } from '../services/global-variables.service';
 
-import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-read',
   templateUrl: './read.component.html',
@@ -16,7 +14,6 @@ export class ReadComponent implements OnInit {
   constructor(
     public GVS: GlobalVariablesService,
     private cdr: ChangeDetectorRef,
-    private router: Router,
     public app: AppComponent
   ) {
     console.log('[ReadComponent#constructor]');
