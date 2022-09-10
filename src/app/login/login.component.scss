@@ -82,6 +82,7 @@ table {
   #login-button:hover {
     background-color: $light;
     color: $danger;
+    cursor: pointer;
     transition: 0.2s;
   }
 }
