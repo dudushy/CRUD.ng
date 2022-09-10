@@ -46,18 +46,13 @@ export class LoginComponent implements OnInit {
     this.updateView();
   }
 
-  togglePasswordPeek() {
+  togglePeek() {
     console.log(`[${this.title}#togglePasswordPeek]`);
-
-    const passwordInput = document.getElementById('password-input') as HTMLInputElement;
-    console.log(`[${this.title}#togglePasswordPeek] passwordInput`, passwordInput);
 
     if (this.peek == 'hide') {
       this.peek = 'show';
-      passwordInput.type = 'text';
     } else {
       this.peek = 'hide';
-      passwordInput.type = 'password';
     }
     this.updateView();
   }
@@ -81,22 +76,31 @@ export class LoginComponent implements OnInit {
 
       if (username == accountUsername && password == accountPassword) {
         validAccount = true;
-        console.log(`[${this.title}#login] match`, {
+        const match = {
           username: `${username} == ${accountUsername}`,
           password: `${password} == ${accountPassword}`,
           validAccount: validAccount
-        });
+        };
+        console.log(`[${this.title}#login] match`, match);
+
+        const user = {
+          username: btoa(username),
+          password: btoa(password),
+          operator: account.operator
+        };
+        console.log(`[${this.title}#login] user`, user);
         this.GVS.setVar('logged', true);
+        this.GVS.setVar('user', user);
+        return;
       }
     }
-    if (validAccount != true) console.log(`[${this.title}#login] no match`, {
-      username: `${username}`,
-      password: `${password}`,
-      validAccount: validAccount
-    });
+    if (validAccount == false) console.log(`[${this.title}#login] no match`, validAccount);
   }
 
   logout() {
     this.GVS.setVar('logged', false);
+    console.log(`[${this.title}#logout] logged`, this.GVS.getVar('logged'));
+    this.GVS.setVar('user', null);
+    console.log(`[${this.title}#logout] user`, this.GVS.getVar('user'));
   }
 }

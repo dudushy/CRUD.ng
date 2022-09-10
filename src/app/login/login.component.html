@@ -22,12 +22,12 @@
         <div>
           <img class="icon" src="assets/icons/key.svg">
           <span>Password</span>
-          <button (click)="togglePasswordPeek()" id="password-button">
+          <button (click)="togglePeek()" id="password-button">
             <img *ngIf="peek == 'hide'" id="peek-button" src="assets/icons/eye.svg">
             <img *ngIf="peek == 'show'" id="peek-button" src="assets/icons/eye-off.svg">
           </button>
         </div>
-        <input #password type="password">
+        <input #password [type]="(peek == 'hide') ? 'password' : 'text'">
       </td>
     </tr>
     <tr>
