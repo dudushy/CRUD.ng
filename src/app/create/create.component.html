@@ -9,20 +9,25 @@
     <table>
       <tr class="data-row">
         <td class="data-col">
-          <label class="data-text">text</label>
-          <input class="data-input" value="input">
+          <label class="data-text">number</label>
+          <input class="data-input" type="number" value="1337">
         </td>
       </tr>
       <tr class="data-row">
         <td class="data-col">
           <label class="data-text">text</label>
-          <input class="data-input" value="input">
+          <input class="data-input" type="text" value="input">
         </td>
       </tr>
       <tr class="data-row">
         <td class="data-col">
-          <label class="data-text">text</label>
-          <input class="data-input" value="input">
+          <div *ngIf="img != null" id="img-div">
+            <img [src]="img">
+            <button (click)="removeAllFiles(imgInput)">Remove File</button>
+          </div>
+
+          <label class="data-text">img</label>
+          <input #imgInput class="data-input" type="file" accept="image/*" (input)="uploadImg(imgInput.files[0])">
         </td>
       </tr>
       <tr>
