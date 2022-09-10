@@ -97,10 +97,11 @@ export class LoginComponent implements OnInit {
         console.log(`[${this.title}#login] user`, user);
         this.GVS.setVar('logged', true);
         this.GVS.setVar('user', user);
-        return;
+        break;
       }
     }
     if (validAccount == false) console.log(`[${this.title}#login] no match`, validAccount);
+    this.updateView();
   }
 
   logout() {
@@ -108,5 +109,6 @@ export class LoginComponent implements OnInit {
     console.log(`[${this.title}#logout] logged`, this.GVS.getVar('logged'));
     this.GVS.setVar('user', null);
     console.log(`[${this.title}#logout] user`, this.GVS.getVar('user'));
+    this.updateView();
   }
 }
