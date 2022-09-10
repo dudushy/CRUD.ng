@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'AppComponent';
+  username: any = null;
 
   constructor(
     public GVS: GlobalVariablesService,
@@ -22,9 +23,19 @@ export class AppComponent {
 
     this.redirectTo(this.GVS.getVar('base_url'));
 
+    this.updateUsername();
     this.loadTheme();
 
     // console.log(`[${this.title}#constructor] (GVS) all_pages`, this.GVS.getVar('all_pages'));
+  }
+
+  updateUsername() {
+    const user = this.GVS.getVar('user');
+    if (user != null) {
+      this.username = atob(user.username);
+    } else {
+      this.username = null;
+    }
   }
 
   toggleTheme() {
@@ -56,6 +67,7 @@ export class AppComponent {
   updateView(from: string) {
     console.log(`[${this.title}#updateView] from`, from);
 
+    this.updateUsername();
     this.cdr.detectChanges;
   }
 

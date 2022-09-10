@@ -11,17 +11,40 @@ header {
   animation: grayscale-border-reverse 20s linear;
   animation-iteration-count: infinite;
 
+  td {
+    width: 1%;
+    text-align: center;
+  }
+
   #theme-button {
+    // float: right;
+    // position: absolute;
+    // margin-left: 37%;
+
     border-radius: 50%;
-    float: right;
-    position: absolute;
-    // margin-bottom: -1em;
-    margin-left: 37%;
     width: 2.5em;
     height: 2.5em;
     font-size: larger;
     padding: 0.4em;
     transition: 0.2s;
+  }
+
+  #username-title {
+    // float: left;
+    // position: absolute;
+
+    color: $dark;
+    font-family: sans-serif;
+    // font-size: larger;
+    background-color: lighten($medium, 40%);
+    border-radius: 5px;
+    padding: 0.4em;
+
+    b {
+      color: darken($success, 20%);
+      font-size: large;
+      font-family: monospace;
+    }
   }
 
   hr {

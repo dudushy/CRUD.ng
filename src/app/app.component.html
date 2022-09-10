@@ -1,10 +1,24 @@
 <header>
-  <button id="theme-button">
-    <img *ngIf="GVS.getVar('theme') == 'dark'" src="assets/icons/sunny.svg" (click)="toggleTheme()">
-    <img *ngIf="GVS.getVar('theme') == 'light'" src="assets/icons/moon.svg" (click)="toggleTheme()">
-  </button>
+  <table>
+    <tr>
+      <td>
+        <span id="username-title" *ngIf="username != null">
+          user: <b>{{username}}</b>
+        </span>
+      </td>
 
-  <h1><a href="https://github.com/dudushy/CRUD.ng/" target="_blank">CRUD.ng</a></h1>
+      <td>
+        <h1><a href="https://github.com/dudushy/CRUD.ng/" target="_blank">CRUD.ng</a></h1>
+      </td>
+
+      <td>
+        <button id="theme-button">
+          <img *ngIf="GVS.getVar('theme') == 'dark'" src="assets/icons/sunny.svg" (click)="toggleTheme()">
+          <img *ngIf="GVS.getVar('theme') == 'light'" src="assets/icons/moon.svg" (click)="toggleTheme()">
+        </button>
+      </td>
+    </tr>
+  </table>
 
   <ul>
     <li *ngFor="let page of GVS.getVar('all_pages') | keyvalue">
