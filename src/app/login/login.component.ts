@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { AppComponent } from '../app.component';
+import { GlobalVariablesService } from '../services/global-variables.service';
 
 @Component({
   selector: 'app-login',
@@ -11,6 +13,7 @@ export class LoginComponent implements OnInit {
   peek = 'hide';
 
   constructor(
+    public GVS: GlobalVariablesService,
     private cdr: ChangeDetectorRef,
     public app: AppComponent
   ) {
@@ -44,7 +47,41 @@ export class LoginComponent implements OnInit {
     this.updateView();
   }
 
-  login() {
-    alert('aaa');
+  login(username: any, password: any) {
+    const accounts = this.GVS.getVar('accounts');
+    console.log(`[${this.title}#login] accounts`, accounts);
+
+    console.log(`[${this.title}#login] username`, username);
+    console.log(`[${this.title}#login] password`, password);
+
+    let validAccount = false;
+
+    for (const account of accounts.users) {
+      console.log(`[${this.title}#login] account`, account);
+
+      const accountUsername = atob(account.username);
+      console.log(`[${this.title}#login] accountUsername`, accountUsername);
+      const accountPassword = atob(account.password);
+      console.log(`[${this.title}#login] accountPassword`, accountPassword);
+
+      if (username == accountUsername && password == accountPassword) {
+        validAccount = true;
+        console.log(`[${this.title}#login] match`, {
+          username: `${username} == ${accountUsername}`,
+          password: `${password} == ${accountPassword}`,
+          validAccount: validAccount
+        });
+        this.GVS.setVar('logged', true);
+      }
+    }
+    if (validAccount != true) console.log(`[${this.title}#login] no match`, {
+      username: `${username}`,
+      password: `${password}`,
+      validAccount: validAccount
+    });
+  }
+
+  logout() {
+    this.GVS.setVar('logged', false);
   }
 }

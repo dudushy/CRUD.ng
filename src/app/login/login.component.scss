@@ -1,4 +1,4 @@
-@import '/src/styles.scss';
+@import "/src/styles.scss";
 
 #content {
   display: flex;
@@ -18,19 +18,24 @@ table {
   }
 
   td {
-    background-color: rgba($light, .2);
+    background-color: rgba($light, 0.2);
     padding: 1em;
     border-radius: 20px;
   }
 
   div {
     text-align: left;
-    padding-bottom: .5em;
+    padding-bottom: 0.5em;
   }
 
   span {
     margin-left: 1em;
     position: absolute;
+    font-family: monospace;
+    margin-top: 0.4em;
+    font-size: larger;
+    font-weight: bolder;
+    letter-spacing: 0.2em;
     // padding-bottom: 2em;
     // text-align: center;
   }
@@ -38,8 +43,8 @@ table {
   .icon {
     height: 1.5em;
     width: 1.5em;
-    background-color: rgba($light, .2);
-    padding: .2em;
+    background-color: rgba($light, 0.2);
+    padding: 0.2em;
     border-radius: 50%;
   }
 
@@ -48,7 +53,7 @@ table {
     width: 2em;
     border-radius: 50%;
     float: right;
-    padding: .2em;
+    padding: 0.2em;
   }
 
   #peek-button {
@@ -70,14 +75,13 @@ table {
     height: 3em;
     text-align: center;
     font-size: larger;
-    transition: .2s;
+    transition: 0.2s;
     font-weight: bolder;
   }
 
   #login-button:hover {
     background-color: $light;
     color: $danger;
-    transition: .2s;
+    transition: 0.2s;
   }
 }
-

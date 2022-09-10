@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { AppComponent } from '../app.component';
+import { GlobalVariablesService } from '../services/global-variables.service';
 
 @Component({
   selector: 'app-create',
@@ -10,6 +11,7 @@ export class CreateComponent implements OnInit {
   title = 'create';
 
   constructor(
+    public GVS: GlobalVariablesService,
     private cdr: ChangeDetectorRef,
     public app: AppComponent
   ) {
