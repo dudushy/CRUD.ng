@@ -1,6 +1,5 @@
 #! title preset
 TITLE='[build.sh]'
-echo $TITLE 'start'
 
 echo $TITLE 'setup config...'
 echo $TITLE '- - - - - - - - - - - - - - - - - - - - - - - - - -'
@@ -20,7 +19,7 @@ echo $TITLE 'setup config done!'
 
 #* main
 echo $TITLE 'run'
-bash packages.sh
+# bash packages.sh
 ng build --base-href $PAGE_URL
 npx angular-cli-ghpages --dir=dist/$PROJECT_NAME --message=$COMMIT_MESSAGE
 
