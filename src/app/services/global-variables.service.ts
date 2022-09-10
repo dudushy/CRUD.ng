@@ -13,7 +13,6 @@ import { Injectable } from '@angular/core';
 })
 export class GlobalVariablesService {
   title = 'GlobalVariablesService';
-  variables: any = [];
 
   //! FIREBASE (OUT OF ORDER) [BEGIN] #2
   // fbApp = initializeApp(SECRETS.firebaseConfig);
@@ -42,19 +41,6 @@ export class GlobalVariablesService {
   setupVars() {
     console.log(`[${this.title}#setupVars]`);
 
-    this.variables.theme = 'dark';
-    this.variables.all_pages = [
-      'test',
-      'login',
-      'create',
-      'read',
-      'update',
-      'delete'
-    ];
-    this.variables.base_url = 'test';
-    this.variables.current_url = 'test';
-    console.log(`[${this.title}#setupVars] variables`, this.variables);
-
     this.setVar('theme', 'dark');
     this.setVar('all_pages', [
       'test',
@@ -68,37 +54,45 @@ export class GlobalVariablesService {
     this.setVar('current_url', 'test');
     this.setVar('logged', false);
 
-    this.setVar('accounts', {
-      users: [
-        {
-          username: btoa('admin'),
-          password: btoa('123'),
-          operator: true
-        },
-        {
-          username: btoa('guest'),
-          password: btoa(''),
-          operator: false
-        }
-      ]
-    });
+    this.setVar('accounts', [
+      {
+        username: btoa('admin'),
+        password: btoa('123'),
+        operator: true
+      },
+      {
+        username: btoa('guest'),
+        password: btoa(''),
+        operator: false
+      }
+    ]);
     console.log(`[${this.title}#setupVars] (STORAGE) accounts`, this.getVar('accounts'));
+
+    this.setVar('products', [
+      {
+        id: 0,
+        name: 'banana',
+        amount: 5,
+        price: 1.99,
+        // icon: 'test.svg'
+      },
+      {
+        id: 1,
+        name: 'apple',
+        amount: 2,
+        price: 2.50,
+        // icon: 'test.svg'
+      }
+    ]);
+    console.log(`[${this.title}#setupVars] (STORAGE) products`, this.getVar('products'));
 
   }
 
   getVar(varname: any) {
-    // if (this.variables[varname] != undefined) {
-    //   return this.variables[varname];
-    // } else {
-    //   return null;
-    // }
-
     return JSON.parse(localStorage.getItem(varname) || 'null');
   }
 
   setVar(varname: any, value: any) {
-    // this.variables[varname] = value;
-
     localStorage.setItem(varname, JSON.stringify(value));
   }
 
