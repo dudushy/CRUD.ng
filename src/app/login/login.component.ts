@@ -64,7 +64,7 @@ export class LoginComponent implements OnInit {
 
     let validAccount = false;
 
-    for (const account of accounts.users) {
+    for (const account of accounts) {
       console.log(`[${this.title}#login] account`, account);
 
       const accountUsername = atob(account.username);
