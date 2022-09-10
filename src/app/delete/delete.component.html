@@ -1,3 +1,10 @@
 <div id="content">
-  <p>delete works!</p>
+  <div *ngIf="GVS.getVar('logged') == true">
+    <p>delete works!</p>
+  </div>
+  <div *ngIf="GVS.getVar('logged') == false">
+    <h2>
+      Please <a id="login-redirect" (click)="redirectTo('login')">log-in</a> to use this feature.
+    </h2>
+  </div>
 </div>

@@ -1,14 +1,3 @@
-//TODO global import
-
-$text-default: #ffffff;
-$text-highlight: #9224ff;
-$back-default: #000000;
-$back-highlight: #393939;
-$button-back-default: #3dc2ff;
-$button-back-highlight: #3880ff;
-$button-text-default: #0c2d3c;
-$button-text-highlight: #142d58;
-
 $primary: #3880ff;
 $secondary: #3dc2ff;
 $tertiary: #5260ff;
@@ -18,6 +7,13 @@ $danger: #eb445a;
 $dark: #222428;
 $medium: #92949c;
 $light: #f4f5f8;
+
+$text-dark: #ffffff;
+$text-light: #9224ff;
+$back-dark: #000000;
+$back-light: #393939;
+$button-back-dark: #3dc2ff;
+$button-back-light: #3880ff;
 
 #content {
   background-color: #92949c9a;
@@ -45,6 +41,8 @@ body {
   transition: 0.2s;
 }
 
+
+//? Animations
 @keyframes grayscale-background {
   0%,
   100% {

@@ -1,1 +1,15 @@
 @import "/src/styles.scss";
+
+#login-redirect {
+  background-color: $light;
+  color: $danger;
+  padding: 0.2em;
+  text-decoration: underline;
+  border-radius: 5px;
+}
+
+#login-redirect:hover {
+  background-color: $danger;
+  color: $light;
+  cursor: pointer;
+}

@@ -70,10 +70,32 @@ header {
     transition: 0.2s;
   }
 
+  button[active="true"]:hover {
+    background-color: $dark;
+    transition: 0.2s;
+  }
+
+  button[active="true"]:active {
+    background-color: $medium;
+    color: darken($medium, 30%);
+    transition: 0.1s;
+  }
+
   button[active="false"] {
     background-color: $light;
     color: $danger;
     transition: 0.2s;
+  }
+
+  button[active="false"]:hover {
+    color: $dark;
+    transition: 0.2s;
+  }
+
+  button[active="false"]:active {
+    background-color: $medium;
+    color: darken($medium, 30%);
+    transition: 0.1s;
   }
 }
 
