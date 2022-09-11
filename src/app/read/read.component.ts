@@ -16,11 +16,11 @@ export class ReadComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     public app: AppComponent
   ) {
-    console.log('[ReadComponent#constructor]');
+    console.log(`[${this.title}#constructor]`);
   }
 
   ngOnInit(): void {
-    console.log('[ReadComponent#ngOnInit]');
+    console.log(`[${this.title}#ngOnInit]`);
     this.app.updateView(this.title);
   }
 

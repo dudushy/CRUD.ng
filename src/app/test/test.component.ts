@@ -16,11 +16,11 @@ export class TestComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     public app: AppComponent
   ) {
-    console.log('[TestComponent#constructor]');
+    console.log(`[${this.title}#constructor]`);
   }
 
   ngOnInit(): void {
-    console.log('[TestComponent#ngOnInit]');
+    console.log(`[${this.title}#ngOnInit]`);
     this.app.updateView(this.title);
   }
 

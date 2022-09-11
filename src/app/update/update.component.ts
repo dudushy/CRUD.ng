@@ -16,11 +16,11 @@ export class UpdateComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     public app: AppComponent
   ) {
-    console.log('[UpdateComponent#constructor]');
+    console.log(`[${this.title}#constructor]`);
   }
 
   ngOnInit(): void {
-    console.log('[UpdateComponent#ngOnInit]');
+    console.log(`[${this.title}#ngOnInit]`);
     this.app.updateView(this.title);
   }
 
