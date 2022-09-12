@@ -9,7 +9,7 @@ import { GlobalVariablesService } from '../services/global-variables.service';
   styleUrls: ['./update.component.scss']
 })
 export class UpdateComponent implements OnInit {
-  title = 'update';
+  title = 'UpdateComponent';
 
   constructor(
     public GVS: GlobalVariablesService,

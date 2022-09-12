@@ -9,7 +9,7 @@ import { GlobalVariablesService } from '../services/global-variables.service';
   styleUrls: ['./read.component.scss']
 })
 export class ReadComponent implements OnInit {
-  title = 'read';
+  title = 'ReadComponent';
 
   constructor(
     public GVS: GlobalVariablesService,

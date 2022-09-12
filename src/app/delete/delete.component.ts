@@ -9,7 +9,7 @@ import { GlobalVariablesService } from '../services/global-variables.service';
   styleUrls: ['./delete.component.scss']
 })
 export class DeleteComponent implements OnInit {
-  title = 'delete';
+  title = 'DeleteComponent';
 
   constructor(
     public GVS: GlobalVariablesService,

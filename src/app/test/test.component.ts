@@ -9,7 +9,7 @@ import { GlobalVariablesService } from '../services/global-variables.service';
   styleUrls: ['./test.component.scss']
 })
 export class TestComponent implements OnInit {
-  title = 'test';
+  title = 'TestComponent';
 
   constructor(
     public GVS: GlobalVariablesService,

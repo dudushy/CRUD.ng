@@ -9,7 +9,7 @@ import { GlobalVariablesService } from '../services/global-variables.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  title = 'login';
+  title = 'LoginComponent';
   peek = 'hide';
 
   constructor(
