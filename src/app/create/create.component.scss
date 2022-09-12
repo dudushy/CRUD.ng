@@ -30,28 +30,82 @@
   }
 }
 
-table {
-  // text-align: center;
-  // width: 100%;
-  // margin: auto;
+#fields-div {
+  // margin-inline: 2em;
+  display: block;
+  // padding-inline: 2em;
+  justify-content: center;
+  width: 100%;
 
-  // tr {
-  //   width: 100%;
-  // }
+  // border: 1px solid lime;
 
-  // .data-col {
-  //   width: 100%;
-  // }
+  .field-div {
+    display: flex;
+    justify-content: center;
+    // text-align: center;
+    // width: 200%;
+    padding: 0.3em;
+    border: 4px dashed $warning;
+    border-radius: 15px;
+    // padding-inline: 1em;
+    font-size: larger;
+    font-weight: bolder;
 
-  .data-text {
-    float: left;
+    .data-label {
+      border-radius: 10px;
+      border-right: 5px solid darken($danger, 30%);
+      border-bottom-right-radius: 0px;
+      border-top-right-radius: 0px;
+      float: left;
+      background-color: $warning;
+      color: darken($success, 30%);
+      // margin-right: 50%;
+      padding: 0.4em;
+      // margin: 1em;
+      text-align: left;
+      // margin-left: 0;
+      width: 100%;
+    }
+
+    .data-input {
+      border-radius: 10px;
+      border-left: 5px solid darken($danger, 30%);
+      border-bottom-left-radius: 0px;
+      border-top-left-radius: 0px;
+      float: right;
+      background-color: $success;
+      // margin-left: 2em;
+      padding: 0.4em;
+      // margin: 1em;
+      // margin-right: 0;
+      width: 100%;
+      font-size: large;
+    }
   }
+}
 
-  .data-input {
-    float: right;
-  }
+#create-button {
+  margin-top: 0.5em;
+  width: 100%;
+  padding: 0.2em;
+  font-size: xx-large;
+  color: $dark;
+  background-color: $warning;
+  border: 2px solid $danger;
+  border-radius: 10px;
+  transition: 0.2s;
+}
 
-  #create-button {
-    width: 100%;
-  }
+#create-button:hover {
+  border: 2px solid $light;
+  background-color: darken($warning, 5%);
+  color: lighten($dark, 80%);
+  transition: 0.2s;
+}
+
+#create-button:active {
+  border: 2px solid $warning;
+  background-color: $danger;
+  color: $light;
+  transition: 0.2s;
 }

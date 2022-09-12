@@ -58,4 +58,14 @@ export class CreateComponent implements OnInit {
 
     this.updateView();
   }
+
+  createItem(nome: any, cpf: any, email: any, profissao: any, interesse: any) {
+    console.log(`[${this.title}#createItem]`, {
+      nome: nome,
+      cpf: cpf,
+      email: email,
+      profissao: profissao,
+      interesse: interesse
+    });
+  }
 }

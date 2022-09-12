@@ -5,38 +5,52 @@
     </h2>
   </div>
 
-  <div *ngIf="GVS.getVar('logged') == true">
-    <table>
-      <tr class="data-row">
-        <td class="data-col">
-          <label class="data-text">number</label>
-          <input class="data-input" type="number" value="1337">
-        </td>
-      </tr>
-      <tr class="data-row">
-        <td class="data-col">
-          <label class="data-text">text</label>
-          <input class="data-input" type="text" value="input">
-        </td>
-      </tr>
-      <tr class="data-row">
-        <td class="data-col">
-          <div *ngIf="img != null" id="img-div">
-            <img [src]="img">
-            <button (click)="removeAllFiles(imgInput)">Remove File</button>
-          </div>
+  <div *ngIf="GVS.getVar('logged') == true" style="width: 100%;">
+    <!--? nome, cpf, email, profissao, interesse -->
+    <div id="fields-div">
+      <div class="field-div">
+        <label class="data-label">nome</label>
+        <input class="data-input" type="text" value="input" #nome>
+      </div>
+      <br>
+      <div class="field-div">
+        <label class="data-label">cpf</label>
+        <input class="data-input" type="text" value="input" #cpf>
+      </div>
+      <br>
+      <div class="field-div">
+        <label class="data-label">email</label>
+        <input class="data-input" type="email" value="input" #email>
+      </div>
+      <br>
+      <div class="field-div">
+        <label class="data-label">profissão</label>
+        <input class="data-input" type="text" value="input" #profissao>
+      </div>
+      <br>
+      <div class="field-div">
+        <label class="data-label" for="interesses">interesse</label>
 
-          <label class="data-text">img</label>
-          <input #imgInput class="data-input" type="file" accept="image/*" (input)="uploadImg(imgInput.files[0])">
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <button id="create-button">
-            CREATE
-          </button>
-        </td>
-      </tr>
-    </table>
+        <select class="data-input" name="interesses" #interesse>
+          <option value="empty" selected disabled hidden>--</option>
+          <option value="mercado">Mercado</option>
+          <option value="loja">Loja</option>
+          <option value="essas-coisas">Essas coisas</option>
+        </select>
+      </div>
+    </div>
+
+    <button id="create-button" (click)="createItem(nome.value, cpf.value, email.value, profissao.value, interesse.value)">
+      CREATE
+    </button>
   </div>
 </div>
+
+<!--* Img upload/remove (NOT IN USE YET) -->
+<!-- <div *ngIf="img != null" id="img-div">
+  <img [src]="img">
+  <button (click)="removeAllFiles(imgInput)">Remove File</button>
+</div>
+
+<label class="data-text">img</label>
+<input #imgInput class="data-input" type="file" accept="image/*" (input)="uploadImg(imgInput.files[0])"> -->
