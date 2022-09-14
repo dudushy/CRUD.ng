@@ -23,6 +23,21 @@ export class CreateComponent implements OnInit {
   ngOnInit(): void {
     console.log(`[${this.title}#ngOnInit]`);
     this.app.updateView(this.title);
+
+    // this.test();
+  }
+
+  test() {
+    this.GVS.setVar('dataArray', []);
+
+    const dataArray = this.GVS.getVar('dataArray');
+    console.log(`[${this.title}#test] (BEFORE) dataArray`, dataArray);
+
+    dataArray.push({ aaa: 'bbb' });
+    console.log(`[${this.title}#test] dataArray`, dataArray);
+
+    this.GVS.setVar('dataArray', dataArray);
+    console.log(`[${this.title}#test] (AFTER) dataArray`, this.GVS.getVar('dataArray'));
   }
 
   updateView() {
@@ -60,12 +75,21 @@ export class CreateComponent implements OnInit {
   }
 
   createItem(nome: any, cpf: any, email: any, profissao: any, interesse: any) {
-    console.log(`[${this.title}#createItem]`, {
+    const newItem = {
       nome: nome,
       cpf: cpf,
       email: email,
       profissao: profissao,
       interesse: interesse
-    });
+    };
+    console.log(`[${this.title}#createItem] newItem`, newItem);
+
+    const dataArray = this.GVS.getVar('dataArray');
+    console.log(`[${this.title}#createItem] (BEFORE) dataArray`, dataArray);
+
+    dataArray.push(newItem);
+
+    this.GVS.setVar('dataArray', dataArray);
+    console.log(`[${this.title}#createItem] (AFTER) dataArray`, this.GVS.getVar('dataArray'));
   }
 }
