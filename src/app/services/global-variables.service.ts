@@ -86,6 +86,10 @@ export class GlobalVariablesService {
     ]);
     console.log(`[${this.title}#setupVars] (STORAGE) products`, this.getVar('products'));
 
+    if (this.getVar('dataArray') == null) {
+      this.setVar('dataArray', []);
+    }
+    console.log(`[${this.title}#setupVars] (STORAGE) dataArray`, this.getVar('dataArray'));
   }
 
   getVar(varname: any) {
