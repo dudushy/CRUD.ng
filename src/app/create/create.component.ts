@@ -82,6 +82,15 @@ export class CreateComponent implements OnInit {
       profissao: profissao,
       interesse: interesse
     };
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    for (const [key, value] of Object.entries(newItem)) {
+      // console.log(key, value);
+      if (value == ('')) {
+        alert('Please fill in all fields');
+        return;
+      }
+    }
     console.log(`[${this.title}#createItem] newItem`, newItem);
 
     const dataArray = this.GVS.getVar('dataArray');
@@ -91,5 +100,7 @@ export class CreateComponent implements OnInit {
 
     this.GVS.setVar('dataArray', dataArray);
     console.log(`[${this.title}#createItem] (AFTER) dataArray`, this.GVS.getVar('dataArray'));
+
+    alert('Item saved!');
   }
 }
