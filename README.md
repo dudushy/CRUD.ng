@@ -9,10 +9,8 @@ Playing with Angular.
 ## Setup:
 1. Install Packages
     ```bash
-    bash packages.sh
+    npm i
     ```
-
-    > [packages.sh](/packages.sh)
 
 2. Create new project
     ```bash
