@@ -10,22 +10,22 @@
     <div id="fields-div">
       <div class="field-div">
         <label class="data-label">nome</label>
-        <input class="data-input" type="text" value="" placeholder="Text" #nome>
+        <input class="data-input" type="text" value="" placeholder="Fulano de Tal" #nome>
       </div>
       <br>
       <div class="field-div">
         <label class="data-label">cpf</label>
-        <input class="data-input" type="text" value="" placeholder="Text" #cpf>
+        <input class="data-input" type="number" value="" placeholder="01234567891" maxlength="11" (input)="maskCpf($event)" #cpf>
       </div>
       <br>
       <div class="field-div">
         <label class="data-label">email</label>
-        <input class="data-input" type="email" value="" placeholder="Text" #email>
+        <input class="data-input" type="email" value="" placeholder="example@email.com" #email>
       </div>
       <br>
       <div class="field-div">
         <label class="data-label">profissão</label>
-        <input class="data-input" type="text" value="" placeholder="Text" #profissao>
+        <input class="data-input" type="text" value="" placeholder="Programador" #profissao>
       </div>
       <br>
       <div class="field-div">

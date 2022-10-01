@@ -75,7 +75,10 @@ export class CreateComponent implements OnInit {
   }
 
   createItem(nome: any, cpf: any, email: any, profissao: any, interesse: any) {
+    const newId = this.GVS.getVar('dataArray').length + 1;
+
     const newItem = {
+      id: newId,
       nome: nome,
       cpf: cpf,
       email: email,
@@ -102,5 +105,14 @@ export class CreateComponent implements OnInit {
     console.log(`[${this.title}#createItem] (AFTER) dataArray`, this.GVS.getVar('dataArray'));
 
     alert('Item saved!');
+  }
+
+  maskCpf(element: any) { //TODO - maskCpf (000.000.000-00)
+    console.log(`[${this.title}#maskCpf] element`, element);
+    console.log(`[${this.title}#maskCpf] element.target.value`, element.target.value);
+
+    if (element.target.value.length > 11) {
+      element.target.value = element.target.value.slice(0, 11);
+    }
   }
 }

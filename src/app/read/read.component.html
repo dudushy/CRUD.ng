@@ -6,6 +6,14 @@
   </div>
 
   <div *ngIf="GVS.getVar('logged') == true">
-    <p>read works!</p>
+    <div *ngFor="let item of GVS.getVar('dataArray') | keyvalue" id="{{item.key}}">
+      <div *ngFor="let field of item.value | keyvalue">
+        <p class="field">
+          <span class="field-key">{{field.key}}: </span>
+          <span class="field-value">{{field.value}}</span>
+        </p>
+      </div>
+      <br>
+    </div>
   </div>
 </div>
